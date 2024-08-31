@@ -24,35 +24,35 @@
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
                 <Label
                 Text="Gorjeta: " 
-                    BackgroundColor="Gray" Padding="100, 10"/>
+                    BackgroundColor="Gray" Padding="50, 10"/>
 
                 <Label
                 x:Name="TipLabel"
                 Text="R$ 0.00"
-                    BackgroundColor="Gray" Padding="30, 0"
+                    BackgroundColor="Gray" Padding="15, 0"
                     VerticalTextAlignment="Center"/>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
                 <Label
                 Text="Total: " 
-                    BackgroundColor="Gray" Padding="108, 10"/>
+                    BackgroundColor="Gray" Padding="58, 10"/>
 
                 <Label
                 x:Name="TotalLabel"
                 Text="R$ 0.00" 
-                    BackgroundColor="Gray" Padding="30, 10"/>
+                    BackgroundColor="Gray" Padding="15, 10"/>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
                 <Label
                 Text="Percentual da gorjeta: " 
-                BackgroundColor="Gray" Padding="55, 10"/>
+                BackgroundColor="Gray" Padding="6, 10"/>
 
                 <Label
                 x:Name="TipPercentLabel"
                 Text="10%"
-                    BackgroundColor="Gray" Padding="40, 0"
+                    BackgroundColor="Gray" Padding="20, 0"
                     VerticalTextAlignment="Center"/>
             </HorizontalStackLayout>
 
@@ -64,31 +64,31 @@
                 Value ="20"
                 ValueChanged="TipSlider_ValueChanged"/>
 
-            <HorizontalStackLayout HorizontalOptions="Center" Spacing="50">
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
             <Button 
                 x:Name="SetLowTip"
                 Text="15%"
                 Clicked="SetLowTip_Clicked"
-                Padding="100, 20"/>
+                Padding="60, 20"/>
             <Button 
                 x:Name="SetHighTip"
                 Text="20%"
                 Clicked="SetHighTip_Clicked" 
-                Padding="100, 20"/>
+                Padding="60, 20"/>
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout HorizontalOptions="Center" Spacing="50">
+            <!--<HorizontalStackLayout HorizontalOptions="Center" Spacing="20">-->
             <Button
                 x:Name="RoundUpButton"
                 Text="Arredondar para cima"
                 Clicked="RoundUpButton_Clicked"
-                Padding="42, 20"/>
+                Padding="50, 20"/>
             <Button
                 x:Name="RoundDownButton"
                 Text="Arredondar para baixo"
                 Clicked="RoundDownButton_Clicked" 
-                Padding="42, 20"/>
-            </HorizontalStackLayout>
+                Padding="50, 20"/>
+            <!--</HorizontalStackLayout>-->
 
         </VerticalStackLayout>
     </ScrollView>
