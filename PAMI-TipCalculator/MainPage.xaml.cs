@@ -1,8 +1,12 @@
-﻿namespace PAMI_TipCalculator
+﻿using System.Diagnostics;
+
+namespace PAMI_TipCalculator
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        double valorTotal = 0;
+        double valorDaGorjeta = 0;
+        double valor = 0;
 
         public MainPage()
         {
@@ -23,27 +27,73 @@
 
         private void RoundUpButton_Clicked(object sender, EventArgs e)
         {
-
+            try
+            {
+                valorTotal = Convert.ToDouble(TotalLabel.Text);
+                valorDaGorjeta = Convert.ToDouble(TipLabel.Text);
+                valorDaGorjeta = Math.Ceiling(valorDaGorjeta);
+                valorTotal = Math.Ceiling(valorTotal);
+                TipLabel.Text = valorDaGorjeta.ToString("C");
+                TotalLabel.Text = valorTotal.ToString("C");
+            }
+            catch(Exception ex) 
+            { 
+                Debug.WriteLine(ex.ToString());
+            }
         }
 
         private void RoundDownButton_Clicked(object sender, EventArgs e)
         {
-
+            try
+            {
+                valorTotal = Convert.ToDouble(TotalLabel.Text);
+                valorDaGorjeta = Convert.ToDouble(TipLabel.Text);
+                valorDaGorjeta = Math.Floor(valorDaGorjeta);
+                valorTotal = Math.Floor(valorTotal);
+                TipLabel.Text = valorDaGorjeta.ToString("C");
+                TotalLabel.Text = valorTotal.ToString("C");
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
         }
 
         private void TipSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             TipPercentLabel.Text = TipSlider.Value.ToString("#.##") + "%";
+
+            try
+            {
+                valor = Convert.ToDouble(AmountEntry.Text);
+                valorDaGorjeta = valor * (TipSlider.Value / 100);
+                valorTotal = valorDaGorjeta + valor;
+
+                TotalLabel.Text = valorTotal.ToString("C");
+                TipLabel.Text = valorDaGorjeta.ToString("C");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+
         }
 
         private void AmountEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            double Valor = Convert.ToDouble(AmountEntry.Text);
-            double ValorDaGorjeta = Valor * (TipSlider.Value / 100);
-            double ValorTotal = ValorDaGorjeta + Valor;
+            try
+            {
+                valor = Convert.ToDouble(AmountEntry.Text);
+                valorDaGorjeta = valor * (TipSlider.Value / 100);
+                valorTotal = valorDaGorjeta + valor;
 
-            TotalLabel.Text = ValorTotal.ToString();
-            TipLabel.Text = ValorDaGorjeta.ToString();
+                TotalLabel.Text = valorTotal.ToString();
+                TipLabel.Text = valorDaGorjeta.ToString();
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
         }
     }
 
